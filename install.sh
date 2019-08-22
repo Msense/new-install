@@ -6,6 +6,9 @@ installation(){
     echo "$name installation succeeded"
 }
 
+# Checking git installation
+git --version
+
 # Installation of basic tools
 git clone https://github.com/haomingw/dotfiles $HOME/Documents/Projets
 
