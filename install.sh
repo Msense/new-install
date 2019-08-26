@@ -102,7 +102,7 @@ echo "Configuring VSCodium"
 read -p "Do you want to use the settings of this repository for VSCodium?" vsc_settings
 case $vsc_settings in 
     [yY][eE][sS]|[yY]) 
-    cp /VSCodium/settings.json $HOME/Library/Application Support/VSCodium/User/settings.json
+    cp ./VSCodium/settings.json $HOME/Library/Application Support/VSCodium/User/settings.json
     *) echo "VSCodium configuration aborted"
     exit 0;;
 esac
