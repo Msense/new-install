@@ -23,7 +23,7 @@ confirm() {
 install-tools(){
     while :
     do
-        bash $HOME/Documents/Projets/dotfiles/install.sh -n
+        bash $HOME/Documents/Projets/dotfiles/install.sh -f
         confirm
     done
 }
@@ -91,15 +91,23 @@ case $server_connexion in
     exit 0 ;;
 esac
 
-test(){
-    echo "Starting configuration for connexion to servers"
-    read -p "Do you want to configure a server connexion? (y/N)" server_connexion
-    case $server_connexion in 
-        [yY][eE][sS]|[yY]) 
-            read -p "Please provide template path " template_path
-            sed -e "s/%USER%/$USER/g" $template_path > $HOME/.ssh/config \
-            && echo "Server connexion configuration is complete" \
-            || echo "Server connexion configuration failed";;
-        *) echo "Server configuration aborted" ;;
-    esac
+# Install VSCodium
+install-vscodium(){
+    brew cask install vscodium
 }
+installation install-vscodium
+
+# Configuration of VSCodium
+echo "Configuring VSCodium"
+read -p "Do you want to use the settings of this repository for VSCodium?" vsc_settings
+case $vsc_settings in 
+    [yY][eE][sS]|[yY]) 
+    cp /VSCodium/settings.json $HOME/Library/Application Support/VSCodium/User/settings.json
+    *) echo "VSCodium configuration aborted"
+    exit 0;;
+esac
+
+extensions="azemoh.one-monokai batisteo.vscode-django be5invis.vscode-icontheme-nomo-dark doi.fileheadercomment donjayamanne.python-extension-pack jprestidge.theme-material-theme k--kato.intellij-idea-keybindings kiteco.kite magicstack.MagicPython ms-python.python ms-vscode.Go rokoroku.vscode-theme-darcula VisualStudioExptTeam.vscodeintellicode wholroyd.jinja"
+for i in $extensions; do
+    code --install-extension $i
+done

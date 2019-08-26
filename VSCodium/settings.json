@@ -1,0 +1,14 @@
+{
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "files.autoSave": "afterDelay",
+    "jetbrainsKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnPaste": true,
+    "kite.showWelcomeNotificationOnStartup": false,
+    "vsintellicode.python.completionsEnabled": false,
+    "vsintellicode.modify.editor.suggestSelection": "disabled",
+    "vsintellicode.typescript.completionsEnabled": false,
+    "workbench.iconTheme": "vs-nomo-dark",
+    "workbench.colorTheme": "Sublime Material Theme - Dark"
+}
